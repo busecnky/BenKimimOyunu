@@ -38,7 +38,8 @@ public class OyunService extends ServiceManager<Oyun, Long> {
     public ControlResponseDto oyunOyna(OyunCevapRequestDto dto) {
         Optional<Oyun> oyun = oyunRepository.findByUsername(dto.getUsername());
         Optional<Oyuncu> oyuncu = oyuncuRepository.findOptionalByUsername(dto.getUsername());
-        if (!oyun.isEmpty()) {
+
+        if (oyun.isPresent()) {
             Optional<Soru> soru = soruService.findById(dto.getSoruid());
             if (!dto.getOyuncucevap().equalsIgnoreCase(soru.get().getDogruCevap())) {
                 if(oyun.get().getHak() !=0){
