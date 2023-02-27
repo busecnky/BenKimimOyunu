@@ -44,7 +44,7 @@ public class OyunService extends ServiceManager<Oyun, Long> {
             if (!dto.getOyuncucevap().equalsIgnoreCase(soru.get().getDogruCevap())) {
                 if(oyun.get().getHak() !=0){
                     oyun.get().setHak(oyun.get().getHak()-1);
-                    oyun.get().setPuan(oyun.get().getHak()-1);
+                    oyun.get().setPuan(oyun.get().getHak());
                     update(oyun.get());
                     return new ControlResponseDto(true);
                 }else{
@@ -62,6 +62,7 @@ public class OyunService extends ServiceManager<Oyun, Long> {
 
     public ControlResponseDto oyunOlustur(OyunKatilanlarRequestDto dto) {
         Oyun oyun = IOyunMapper.INSTANCE.toOyun(dto);
+
         oyun.setHak(5);
         save(oyun);
         return new ControlResponseDto(true);

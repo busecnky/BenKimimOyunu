@@ -14,6 +14,6 @@ public class OyunKatilanlarRequestDto {
     Long oyunid;
     int puan;
     int hak;
-    Long oyuncuid;
+    String username;
 
 }
