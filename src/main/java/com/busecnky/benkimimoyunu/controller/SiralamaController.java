@@ -12,4 +12,6 @@ import static com.busecnky.benkimimoyunu.constants.EndPoints.*;
 @RequestMapping(VERSION+API+SIRALAMA)
 public class SiralamaController {
     private final SiralamaService siralamaService;
+
+
 }
